@@ -101,7 +101,7 @@ class Customizer extends Component {
       <div
         id="customizer"
         className={classList({
-          customizer: true,
+          customizer: false,
           open: settings.customizer.open
         })}
       >

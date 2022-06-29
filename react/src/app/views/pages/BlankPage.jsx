@@ -3,6 +3,8 @@ import { Breadcrumb } from "@gull";
 import { Dropdown } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
+// import Form from "./@gull/components/Form/Form.js";
+// import Log from "./@gull/components/Log/Log.js";
 
 
 class BlankPage extends Component {

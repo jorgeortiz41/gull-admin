@@ -11,32 +11,32 @@ class BlankPage extends Component {
       {
         name: "Phil Perillat",
         comment: "Observation has been delayed by 15 minutes",
-        status: "A4000",
+        eventCode: "A4000",
       },
       {
         name: "P.K Manoharan",
         comment: "The sun is hot",
-        status: "A4001",
+        eventCode: "A4001",
       },
       {
         name: "Felix Fernandez",
         comment: "Upgrading cryogenic frontend",
-        status: "MAINT",
+        eventCode: "MAINT",
       },
       {
         name: "Phil Perillat",
         comment: "Observation has been delayed by 15 minutes",
-        status: "A4000",
+        eventCode: "A4000",
       },
       {
         name: "P.K Manoharan",
         comment: "The sun is hot",
-        status: "P4000",
+        eventCode: "P4000",
       },
       {
         name: "Felix Fernandez",
         comment: "Upgrading cryogenic frontend",
-        status: "MAINT",
+        eventCode: "MAINT",
       },
     ],
 
@@ -77,8 +77,8 @@ class BlankPage extends Component {
     });
   };
 
-  getUserStatusClass = (status) => {
-    switch (status) {
+  getUserEventClass = (eventCode) => {
+    switch (eventCode) {
       case "A4000":
         return "bg-success";
       case "A4001":
@@ -94,8 +94,8 @@ class BlankPage extends Component {
     }
   };
 
-  getStatusTextColor = (status) => {
-    switch (status) {
+  getStatusTextColor = (eventCode) => {
+    switch (eventCode) {
       case "In Stock":
         return "text-success";
       case "Low Stock":
@@ -217,11 +217,11 @@ class BlankPage extends Component {
                     <td>{user.name}</td>
                     <td>
                       <span
-                        className={`badge ${this.getUserStatusClass(
-                          user.status
+                        className={`badge ${this.getUserEventClass(
+                          user.eventCode
                         )}`}
                       >
-                        {user.status}
+                        {user.eventCode}
                       </span>
                     </td>
                     <td>{user.comment}</td>

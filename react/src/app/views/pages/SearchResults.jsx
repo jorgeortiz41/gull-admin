@@ -53,7 +53,7 @@ class SearchResults extends Component {
                         </p>
                       </li>
                       <li className="list-group-item">
-                        <h3>Vue.js lightweight-framework></h3>
+                        <h3>Vue.js lightweight-framework</h3>
                         <a
                           href="https://vuejs.org/lightweight-framework"
                           className="text-15 text-success"

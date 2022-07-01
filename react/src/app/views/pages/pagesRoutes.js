@@ -6,7 +6,9 @@ const SearchResults = lazy(() => import("./SearchResults"));
 
 const UserProfile = lazy(() => import("./UserProfile"));
 
-const BlankPage = lazy(() => import("./BlankPage"));
+const OperatorLog = lazy(() => import("./OperatorLog"));
+
+const Records = lazy(() => import("./Records"));
 
 const FAQ = lazy(() => import("./FAQ"));
 
@@ -28,8 +30,12 @@ const pagesRoutes = [
     component: FAQ
   },
   {
-    path: "/pages/blank-page",
-    component: BlankPage
+    path: "/pages/operators-log",
+    component: OperatorLog
+  },
+  {
+    path: "/pages/records",
+    component: Records
   }
 ];
 

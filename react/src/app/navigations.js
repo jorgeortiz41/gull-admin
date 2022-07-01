@@ -657,8 +657,14 @@ export const navigations = [
       },
       {
         icon: "i-File",
-        name: "Blank Page",
-        path: "/pages/blank-page",
+        name: "12M Operator's Log",
+        path: "/pages/operators-log",
+        type: "link"
+      },
+      {
+        icon: "i-File",
+        name: "12M Operations Records",
+        path: "/pages/records",
         type: "link"
       }
     ]

@@ -200,6 +200,7 @@ class OperatorLog extends Component {
             { name: "Home", path: "/" },
             { name: "Pages", path: "/pages" },
             { name: "Records", path: "/pages/Records" },
+            { name: "12M Dashboard", path: "/pages/12m-dashboard" },
             { name: "12M Operator's Log" },
           ]}
         ></Breadcrumb>

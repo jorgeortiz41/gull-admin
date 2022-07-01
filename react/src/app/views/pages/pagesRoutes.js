@@ -10,6 +10,8 @@ const OperatorLog = lazy(() => import("./OperatorLog"));
 
 const Records = lazy(() => import("./Records"));
 
+const Dashboard12m = lazy(() => import("./Dashboard12m"));
+
 const FAQ = lazy(() => import("./FAQ"));
 
 const pagesRoutes = [
@@ -36,7 +38,11 @@ const pagesRoutes = [
   {
     path: "/pages/records",
     component: Records
-  }
+  },
+  {
+    path: "/pages/12m-dashboard",
+    component: Dashboard12m
+  },
 ];
 
 export default pagesRoutes;

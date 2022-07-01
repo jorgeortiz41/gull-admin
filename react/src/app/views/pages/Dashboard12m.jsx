@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 // import Log from "./@gull/components/Log/Log.js";
 
 
-class Records extends Component {
+class Dashboard12m extends Component {
   state = {
     EventsList: [
       {
@@ -162,8 +162,8 @@ class Records extends Component {
             { name: "Home", path: "/" },
             { name: "Pages", path: "/pages" },
             { name: "Log", path : "/pages/operators-log" },
-            { name: "12M Dashboard", path: "/pages/12m-dashboard" },
-            { name: "12M Operations Records" },
+            { name: "Records", path: "/pages/records" },
+            { name: "12M Radio Telescope Dashboard" },
           ]}
         ></Breadcrumb>
 
@@ -327,4 +327,4 @@ class Records extends Component {
   }
 }
 
-export default Records;
+export default Dashboard12m;

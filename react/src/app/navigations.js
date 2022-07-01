@@ -666,7 +666,13 @@ export const navigations = [
         name: "12M Operations Records",
         path: "/pages/records",
         type: "link"
-      }
+      },
+      {
+        icon: "i-File",
+        name: "12M Dashboard",
+        path: "/pages/12m-dashboard",
+        type: "link"
+      },
     ]
   },
   {

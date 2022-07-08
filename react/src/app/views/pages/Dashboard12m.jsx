@@ -16,6 +16,8 @@ import Echart8 from "../ui-kits/card-metrics/Echart8";
 import Echart9 from "../ui-kits/card-metrics/Echart9";
 import Echart10 from "../ui-kits/card-metrics/Echart10";
 import { ProgressBar } from "react-bootstrap";
+import { Row, Col, Tab, Tabs, Nav } from "react-bootstrap";
+import SimpleCard from "@gull/components/cards/SimpleCard";
 
 import {
   bAOptions1,
@@ -43,19 +45,28 @@ import {
   bAOptions23
 } from "./DashboardOptions";
 
+const customTabHeader = (title, icon) => (
+  <div className="d-flex align-items-center">
+    <span className="me-2">
+      <i className={icon}></i>
+    </span>
+    <span>{title}</span>
+  </div>
+);
+
 
 class Dashboard12m extends Component {
   state = {
     cardList1: [
       {
         icon: "i-Car-Items",
-        title: "New Leads",
-        amount: 205
+        title: "Observations",
+        amount: 5630
       },
       {
         icon: "i-Data-Download",
-        title: "Download",
-        amount: 4021
+        title: "Workers",
+        amount: 16
       },
       {
         icon: "i-Cube-Molecule-2",
@@ -296,6 +307,9 @@ class Dashboard12m extends Component {
     }
   };
 
+  randomText =
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
   render() {
     let {
       cardList1,
@@ -341,7 +355,36 @@ class Dashboard12m extends Component {
           </div>
         </section>
 
-        <section className="ul-widget-stat-s2">
+        <Col lg={6} md={6} sm={6} xs={12}>
+              <SimpleCard title="Tabs with Icon">
+                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
+                  <Tab
+                    eventKey="home"
+                    title={customTabHeader("Home", "i-Atom")}
+                  >
+                    
+                  </Tab>
+                  <Tab
+                    eventKey="profile"
+                    title={customTabHeader("Profile", "i-Shutter")}
+                  >
+                  </Tab>
+                  <Tab
+                    eventKey="contact"
+                    title={customTabHeader("Contact", "i-Boy")}
+                  >
+                  </Tab>
+                  <Tab
+                    eventKey="disabled"
+                    title={customTabHeader("Disabled", "i-Close")}
+                    disabled
+                  >
+                  </Tab>
+                </Tabs>
+              </SimpleCard>
+            </Col>
+
+        {/* <section className="ul-widget-stat-s2">
           <div className="row">
             {chartList1.map((item, ind) => (
               <div key={ind} className=" col-md-3 col-lg-3">
@@ -367,7 +410,7 @@ class Dashboard12m extends Component {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         <section className="ul-widget-stat-s3">
           <div className="row">

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Breadcrumb } from "@gull";
-import { Dropdown } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
@@ -16,7 +15,7 @@ import Echart8 from "../ui-kits/card-metrics/Echart8";
 import Echart9 from "../ui-kits/card-metrics/Echart9";
 import Echart10 from "../ui-kits/card-metrics/Echart10";
 import { ProgressBar } from "react-bootstrap";
-import { Row, Col, Tab, Tabs, Nav } from "react-bootstrap";
+import { Row, Col, Tab, Tabs, Nav, Dropdown, Accordion } from "react-bootstrap";
 import SimpleCard from "@gull/components/cards/SimpleCard";
 
 import {
@@ -234,33 +233,40 @@ class Dashboard12m extends Component {
     ],
     cardList3: [
       {
-        title: "Server status region 1",
+        title: "STAT",
         subtitle: "Last down 4 days ago",
         icon: "i-Arrow-Up-in-Circle",
         color: "success",
-        message: "Up"
+        message: "OK"
       },
       {
-        title: "Server status region 2",
-        subtitle: "Last down 8 days ago",
-        icon: "i-Arrow-Up-in-Circle",
-        color: "success",
-        message: "Up"
-      },
-      {
-        title: "Server status region 3",
-        subtitle: "Last down 22 days ago",
-        icon: "i-Arrow-Down-in-Circle",
+        icon: "i-Cube-Molecule-2",
+        title: "MODE",
+        subtitle: "Last up 1 days ago",
         color: "danger",
-        message: "Down"
+        message: "pwrOff"
       },
-      {
-        title: "Server status region 4",
-        subtitle: "Last down 2 days ago",
-        icon: "i-Arrow-Down-in-Circle",
-        color: "danger",
-        message: "Down"
-      }
+      // {
+      //   title: "Server status region 2",
+      //   subtitle: "Last down 8 days ago",
+      //   icon: "i-Arrow-Up-in-Circle",
+      //   color: "success",
+      //   message: "Up"
+      // },
+      // {
+      //   title: "Server status region 3",
+      //   subtitle: "Last down 22 days ago",
+      //   icon: "i-Arrow-Down-in-Circle",
+      //   color: "danger",
+      //   message: "Down"
+      // },
+      // {
+      //   title: "Server status region 4",
+      //   subtitle: "Last down 2 days ago",
+      //   icon: "i-Arrow-Down-in-Circle",
+      //   color: "danger",
+      //   message: "Down"
+      // }
     ],
     activePage: 1,
 
@@ -329,237 +335,15 @@ class Dashboard12m extends Component {
           routeSegments={[
             { name: "Home", path: "/" },
             { name: "Pages", path: "/pages" },
-            { name: "Log", path : "/pages/operators-log" },
+            { name: "Log", path: "/pages/operators-log" },
             { name: "Records", path: "/pages/records" },
             { name: "12M Radio Telescope Dashboard" },
           ]}
         ></Breadcrumb>
 
-<section className="ul-widget-stat-s1">
-          <div className="row">
-            {cardList1.map((card, ind) => (
-              <div key={ind} className="col-lg-3 col-md-6 col-sm-6">
-                <div className="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                  <div className="card-body text-center">
-                    <i className={card.icon}></i>
-                    <div className="content">
-                      <p className="text-muted mt-2 mb-0">{card.title}</p>
-                      <p className="text-primary text-24 line-height-1 mb-2">
-                        {card.amount}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <Col lg={6} md={6} sm={6} xs={12}>
-              <SimpleCard title="Tabs with Icon">
-                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
-                  <Tab
-                    eventKey="home"
-                    title={customTabHeader("Home", "i-Atom")}
-                  >
-                    
-                  </Tab>
-                  <Tab
-                    eventKey="profile"
-                    title={customTabHeader("Profile", "i-Shutter")}
-                  >
-                  </Tab>
-                  <Tab
-                    eventKey="contact"
-                    title={customTabHeader("Contact", "i-Boy")}
-                  >
-                  </Tab>
-                  <Tab
-                    eventKey="disabled"
-                    title={customTabHeader("Disabled", "i-Close")}
-                    disabled
-                  >
-                  </Tab>
-                </Tabs>
-              </SimpleCard>
-            </Col>
-
-        {/* <section className="ul-widget-stat-s2">
-          <div className="row">
-            {chartList1.map((item, ind) => (
-              <div key={ind} className=" col-md-3 col-lg-3">
-                <div className="card mb-4  o-hidden">
-                  <div className="card-body ul-card__widget-chart">
-                    <div className="ul-widget__chart-info">
-                      <h5 className="heading">{item.title}</h5>
-                      <div className="ul-widget__chart-number">
-                        <h2 className="t-font-boldest">${item.amount}</h2>
-                        <small className="text-muted">
-                          46% compared to last year
-                        </small>
-                      </div>
-                    </div>
-                    <Chart
-                      options={item.chart}
-                      series={item.chart.series}
-                      type="area"
-                      height="100"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section> */}
-
-        <section className="ul-widget-stat-s3">
-          <div className="row">
-            {chartList2.map((item, ind) => (
-              <div key={ind} className=" col-md-3 col-lg-3">
-                <div className="card mb-4  o-hidden">
-                  <div className="card-body ul-card__widget-chart">
-                    <div className="ul-widget__chart-info">
-                      <h5 className="heading text-20  line-height-1 mb-3">
-                        <i className={item.icon}></i> {item.title}
-                      </h5>
-                      <div className="ul-widget__chart-number">
-                        <h6 className="">{item.amount.toLocaleString()}</h6>
-                      </div>
-                    </div>
-                    <Chart
-                      options={item.chart}
-                      series={item.chart.series}
-                      type="area"
-                      height="100"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="ul-widget-stat-s3">
-          <div className="row">
-            {chartList3.map((item, ind) => (
-              <div key={ind} className=" col-md-3 col-lg-3">
-                <div className="card mb-4  o-hidden h-100">
-                  <div className="card-body">
-                    <div className="ul-widget__row">
-                      <Chart
-                        options={item.chart}
-                        series={item.chart.series}
-                        type={item.chart.chart.type}
-                      />
-                      <div className="ul-widget__content">
-                        <p className=" text-mute m-0">{item.title}</p>
-                        <h4 className="heading">{item.amount}</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="ul-widget-stat-s3">
-          <div className="row">
-            {chartList4.map((item, ind) => (
-              <div key={ind} className=" col-md-3 col-lg-3">
-                <div className="card mb-4  o-hidden">
-                  <div className="card-body">
-                    <div className="ul-widget__row-v2">
-                      <Chart
-                        options={item.chart}
-                        series={item.chart.series}
-                        type={item.chart.chart.type}
-                        height="100"
-                      />
-                      <div className="ul-widget__content-v2">
-                        <h4 className="heading mt-3">{item.amount}</h4>
-                        <small className=" text-muted m-0">50% Average</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="ul-widget-stat-s3">
-          <div className="row">
-            {cardList2.map((item, ind) => (
-              <div key={ind} className=" col-md-3 col-lg-3">
-                <div className="card mb-2">
-                  <div className="card-body">
-                    <div className="ul-widget__row">
-                      <div className="ul-widget-stat__font">
-                        <i className={`${item.icon} ${item.color}`}></i>
-                      </div>
-                      <div className="ul-widget__content">
-                        <p className=" m-0">{item.title}</p>
-                        <h4 className="heading">{item.amount}</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="ul-widget-stat-s3">
-          <div className="row">
-            {chartList5.map((item, ind) => (
-              <div key={ind} className=" col-md-3 col-lg-3">
-                <div className="card mt-4 mb-4  o-hidden">
-                  <div className="card-body">
-                    <div className="ul-widget__row-v2">
-                      <Chart
-                        options={item.chart}
-                        series={item.chart.series}
-                        type={item.chart.chart.type}
-                      />
-                      <div className="ul-widget__content-v2">
-                        <h4 className="heading mt-3">{item.title}</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="ul-widget-stat-s3">
-          <div className="row">
-            {chartList6.map((item, ind) => (
-              <div key={ind} className=" col-md-4 col-lg-4">
-                <div className="card mb-4  o-hidden">
-                  <div className="card-body ul-card__widget-chart">
-                    <div className="ul-widget__row-v2">
-                      <div className="ul-widget__content-v2">
-                        <h3 className="heading mt-3">{item.amount}</h3>
-                        <small className=" text-muted m-0">{item.title}</small>
-                      </div>
-                      <Chart
-                        options={item.chart}
-                        series={item.chart.series}
-                        type={item.chart.chart.type}
-                        height="100"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="ul-widget-stat-s3">
-          <div className="row">
+        <div className="row">
+          <Col lg={8} md={8} sm={8} xs={8}>
+            <div className="row">
             {cardList3.map((item, ind) => (
               <div key={ind} className="col-md-3">
                 <div className="card mb-4">
@@ -575,196 +359,179 @@ class Dashboard12m extends Component {
                 </div>
               </div>
             ))}
-          </div>
-        </section>
+            </div>
+            <img
+                className="card-img"
+                src="/assets/images/12mmodel.png"
+                alt="Card"
+              />
 
-        <div className="row">
-          <div className="col-md-3">
-            <div className="card mb-4">
+            <SimpleCard title="12M Status">
+              <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
+                <Tab
+                  eventKey="home"
+                  title={customTabHeader("Monitor Broadcast", "i-Atom")}
+                >
+
+                </Tab>
+                <Tab
+                  eventKey="profile"
+                  title={customTabHeader("Pointing requested position", "i-Shutter")}
+                >
+                </Tab>
+                <Tab
+                  eventKey="contact"
+                  title={customTabHeader("Downstairs if/lo", "i-Boy")}
+                >
+                </Tab>
+              </Tabs>
+            </SimpleCard>
+          </Col>
+
+          <Col lg={4} md={2} sm={2} xs={2}>
+            <div className="card bg-dark text-white o-hidden mb-2">
+              <img
+                className="card-img"
+                src="/assets/images/12m-cropped.jpg"
+                alt="Card"
+              />
+            </div>
+
+            <div className="card bg-primary">
               <div className="card-body">
-                <h6 className="mb-1">Taffic in last 24h</h6>
-                <p className="text-22 text-success font-weight-light mb-1">
-                  13000
-                </p>
-                <Echart1 height="65px"></Echart1>
+                <div className="row text-center">
+                  <div className="col-12 col-md-12">
+                    <div className="text-white ">
+                      <h4 className="card-title text-white">Lester, London</h4>
+                      <h5 className="font-light text-white">
+                        MONDAY May 11, 2017
+                      </h5>
+                    </div>
+                    <div className="mt-4">
+                      <span className="text-white">
+                        <i className="i-Cloud-Sun display-4"></i>
+                      </span>
+                      <div className="d-inline-block ms-3">
+                        <h2 className="text-white"> 29° C</h2>
+                        <h4 className="text-white">Day Rain</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ul-weather-card__weather-info text-white mt-4">
+                  <div className="row text-center">
+                    <div className="col-6 col-md-2">
+                      <div className="">SAT</div>
+                      <div className="">
+                        <i className="i-Cloud-Weather"></i>
+                      </div>
+                      <div className="">
+                        12 <sup>o</sup>C
+                      </div>
+                    </div>
+                    <div className="col-6 col-md-2">
+                      <div className="">SUN</div>
+                      <div className="">
+                        <i className="i-Cloud-Weather"></i>
+                      </div>
+                      <div className="">
+                        23 <sup>o</sup>C
+                      </div>
+                    </div>
+                    <div className="col-6 col-md-2">
+                      <div className="">MON</div>
+                      <div className="">
+                        <i className="i-Cloud-Weather"></i>
+                      </div>
+                      <div className="">
+                        17 <sup>o</sup>C
+                      </div>
+                    </div>
+                    <div className="col-6 col-md-2">
+                      <div className="">TUE</div>
+                      <div className="">
+                        <i className="i-Clouds"></i>
+                      </div>
+                      <div className="">
+                        23 <sup>o</sup>C
+                      </div>
+                    </div>
+                    <div className="col-6 col-md-2">
+                      <div className="">WED</div>
+                      <div className="">
+                        <i className="i-Clouds-Weather"></i>
+                      </div>
+                      <div className="">
+                        27 <sup>o</sup>C
+                      </div>
+                    </div>
+                    <div className="col-6 col-md-2">
+                      <div className="">THU</div>
+                      <div className="">
+                        <i className="i-Cloud-Sun"></i>
+                      </div>
+                      <div className="">
+                        38 <sup>o</sup>C
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="col-md-3">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h6 className="mb-1">Taffic in last week</h6>
-                <p className="text-22 text-danger font-weight-light mb-1">
-                  65058
-                </p>
-                <Echart2 height="65px"></Echart2>
-              </div>
-            </div>
-          </div>
+            <Accordion className="mb-3 mt-8" defaultActiveKey="navigation">
+              <Accordion.Item eventKey="navigation">
+                <Accordion.Header className="w-100" eventKey="search">
+                  Navigation
+                </Accordion.Header>
+                <Accordion.Body eventKey="navigation">
+                  <div id="custom-toggle3">
+                    <p className="card-text">Actions</p>
 
-          <div className="col-md-3">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h6 className="mb-1">Taffic in last month</h6>
-                <p className="text-22 text-success font-weight-light mb-1">
-                  165058
-                </p>
-                <Echart3 height="65px"></Echart3>
-              </div>
-            </div>
-          </div>
+                    <div className="list-group">
+                      <Link
+                        to="#"
+                        className="list-group-item list-group-item-action"
+                      >
+                        <span className="custom-font">
+                          <i className="i-Add-Window"> </i>
+                        </span>
+                        Telescope Schedule
+                      </Link>
+                      <Link
+                        to="#"
+                        className="list-group-item list-group-item-action "
+                      >
+                        <i className="i-Empty-Box"> </i> Upcoming Projects
+                      </Link>
+                      <Link
+                        to="https://www.naic.edu/ao/projects-dashboard"
+                        className="list-group-item list-group-item-action"
+                      >
+                        <i className="i-Edit"> </i> Projects Dashboard
+                      </Link>
+                      <Link
+                        to="#"
+                        className="list-group-item list-group-item-action"
+                      >
+                        <i className="i-Add-User"> </i> Assign User
+                      </Link>
+                      <Link
+                        to="#"
+                        className="list-group-item list-group-item-action disabled"
+                      >
+                        <i className="i-Business-Mens"> </i> Create Team
+                      </Link>
+                    </div>
+                    <div className="mb-4"></div>
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          
+          </Col>
 
-          <div className="col-md-3">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h6 className="mb-1">Taffic in last 3 months</h6>
-                <p className="text-22 text-danger font-weight-light mb-1">
-                  1065058
-                </p>
-                <Echart4 height="65px"></Echart4>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div className="row">
-          <div className="col-md-3">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h6 className="mb-2 text-muted">Storage Usage</h6>
-                <p className="mb-1 text-22 font-weight-light">50%</p>
-                <ProgressBar
-                  variant="success"
-                  now={50}
-                  style={{ height: "4px" }}
-                ></ProgressBar>
-                <small className="text-muted">
-                  Most data used in last 3 days
-                </small>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h6 className="mb-2 text-muted">Bandwith Usage</h6>
-                <p className="mb-1 text-22 font-weight-light">90%</p>
-                <ProgressBar
-                  variant="danger"
-                  now={90}
-                  style={{ height: "4px" }}
-                ></ProgressBar>
-                <small className="text-muted">
-                  Most data used in last 7 days
-                </small>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h6 className="mb-2 text-muted">Data Usage</h6>
-                <p className="mb-1 text-22 font-weight-light">60%</p>
-                <ProgressBar
-                  variant="warning"
-                  now={60}
-                  style={{ height: "4px" }}
-                ></ProgressBar>
-                <small className="text-muted">
-                  Most data used in last 5 days
-                </small>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3">
-            <div className="card mb-4">
-              <div className="card-body">
-                <h6 className="mb-2 text-muted">Data Usage</h6>
-                <p className="mb-1 text-22 font-weight-light">60%</p>
-                <ProgressBar
-                  variant="info"
-                  now={60}
-                  style={{ height: "4px" }}
-                ></ProgressBar>
-                <small className="text-muted">
-                  Most data used in last 4 days
-                </small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-3 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h6 className="mb-0 text-muted">Registration/Subscription</h6>
-                <p className="text-22 font-weight-light mb-1">20/80</p>
-                <Echart5 height="140px"></Echart5>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h6 className="mb-0 text-muted">Project Running/Completed</h6>
-                <p className="text-22 font-weight-light mb-1">40/60</p>
-                <Echart6 height="140px"></Echart6>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h6 className="mb-0 text-muted">Registration/Subscription</h6>
-                <p className="text-22 font-weight-light mb-1">20/80</p>
-                <Echart7 height="140px"></Echart7>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h6 className="mb-0 text-muted">Project Running/Completed</h6>
-                <p className="text-22 font-weight-light mb-1">40/60</p>
-                <Echart8 height="140px"></Echart8>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-3 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h6 className="mb-2 text-muted">Project Completion Rate</h6>
-                <p className="text-22 font-weight-light mb-1">
-                  <i className="i-Up text-success"></i> 15%
-                </p>
-                <Echart9 height="60px"></Echart9>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="card">
-              <div className="card-body">
-                <h6 className="mb-2 text-muted">Project Completion Rate</h6>
-                <p className="text-22 font-weight-light mb-1">
-                  <i className="i-Down text-danger"></i> 15%
-                </p>
-                <Echart10 height="60px"></Echart10>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     );
   }

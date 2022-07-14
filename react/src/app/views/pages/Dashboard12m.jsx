@@ -174,27 +174,51 @@ class Dashboard12m extends Component {
       {
         icon: "i-Building",
         color: "text-primary",
-        title: "Assets",
-        amount: "46,025"
+        title: "Mode",
+        amount: "pwrOFF"
       },
       {
         icon: "i-Bar-Chart",
         color: "text-danger",
-        title: "Progression",
-        amount: "80%"
+        title: "ast",
+        amount: "16:26:01.0"
       },
       {
         icon: "i-Full-Cart",
         color: "text-success",
-        title: "Total Profit",
-        amount: "\u09F3 2000"
+        title: "lmst",
+        amount: "10:30:36.6"
       },
       {
         icon: "i-Bookmark",
         color: "text-warning",
-        title: "Lease",
-        amount: "5,417"
-      }
+        title: "mjd",
+        amount: "59759"
+      },
+      {
+        icon: "i-Full-Cart",
+        color: "text-success",
+        title: "POS",
+        amount: "09:53:09.3 ra, 7:55:35.7 dec"
+      },
+      {
+        icon: "i-Full-Cart",
+        color: "text-success",
+        title: "reqP",
+        amount: "220.8009 az, 76.3556 el"
+      },
+      {
+        icon: "i-Full-Cart",
+        color: "text-success",
+        title: "curP",
+        amount: "201.5009 az, 78.5649 el"
+      },
+      {
+        icon: "i-Full-Cart",
+        color: "text-success",
+        title: "errP",
+        amount: "18.9771 az, -2.4106 el"
+      },
     ],
     chartList5: [
       {
@@ -268,6 +292,138 @@ class Dashboard12m extends Component {
       //   message: "Down"
       // }
     ],
+    cardList4: [
+      {
+        title: "AST",
+        subtitle: "Atlantic Standard Time",
+        icon: "i-Arrow-Up-in-Circle",
+        color: "success",
+        message: "16:26:01.0"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "LMST",
+        subtitle: "Local Mean Sidereal Time",
+        color: "danger",
+        message: "10:30:36.6"
+      },
+      {
+        title: "MJD",
+        subtitle: "Mean Julian Day",
+        icon: "i-Arrow-Up-in-Circle",
+        color: "success",
+        message: "59759"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "POS",
+        subtitle: "Source Position",
+        color: "danger",
+        message: "09:53:09.3 ra, 7:55:35.7 dec"
+      },
+      {
+        title: "ReqP",
+        subtitle: "requested az deg, el deg",
+        icon: "i-Arrow-Up-in-Circle",
+        color: "success",
+        message: "220.8009, 76.3556"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "CurP",
+        subtitle: "current az deg, el deg",
+        color: "danger",
+        message: "201.5009, 78.7662"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "ErrP",
+        subtitle: "error az deg, el deg, totErr",
+        color: "danger",
+        message: "18.9771, -2.4106, 68865.7\""
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "vHel",
+        subtitle: "km/sec",
+        color: "danger",
+        message: "-22.4581"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "vGeo",
+        subtitle: "km/sec",
+        color: "danger",
+        message: "-0.0688"
+      },
+
+    ],
+    cardList5: [
+      {
+        title: "yymmdd",
+        subtitle: "year, month, day",
+        icon: "i-Arrow-Up-in-Circle",
+        color: "success",
+        message: "220714"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "if1frq",
+        subtitle: "MHz",
+        color: "danger",
+        message: "1500"
+      },
+      {
+        title: "vlbaFrq",
+        subtitle: "MHz",
+        icon: "i-Arrow-Up-in-Circle",
+        color: "success",
+        message: "2000"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "gainIF",
+        subtitle: "dB",
+        color: "danger",
+        message: "-5 -5"
+      },
+      {
+        title: "mix1Frq",
+        subtitle: "requested az deg, el deg",
+        icon: "i-Arrow-Up-in-Circle",
+        color: "success",
+        message: "1175.0000"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "mix2Frq",
+        subtitle: "current az deg, el deg",
+        color: "danger",
+        message: "1175.0000"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "mix3Frq",
+        subtitle: "error az deg, el deg, totErr",
+        color: "danger",
+        message: "1175.0000"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "mix4Frq",
+        subtitle: "km/sec",
+        color: "danger",
+        message: "1175.0000"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "mix5Frq",
+        subtitle: "km/sec",
+        color: "danger",
+        message: "1175.0000"
+      },
+
+    ],
     activePage: 1,
 
   };
@@ -321,6 +477,8 @@ class Dashboard12m extends Component {
       cardList1,
       cardList2,
       cardList3,
+      cardList4,
+      cardList5,
       chartList1,
       chartList2,
       chartList3,
@@ -344,27 +502,27 @@ class Dashboard12m extends Component {
         <div className="row">
           <Col lg={8} md={8} sm={8} xs={8}>
             <div className="row">
-            {cardList3.map((item, ind) => (
-              <div key={ind} className="col-md-3">
-                <div className="card mb-4">
-                  <div className="card-body">
-                    <h6 className="mb-3">{item.title}</h6>
-                    <p
-                      className={`text-20 text-${item.color} line-height-1 mb-3`}
-                    >
-                      <i className="i-Arrow-Down-in-Circle"></i> {item.message}
-                    </p>
-                    <small className="text-muted">{item.subtitle}</small>
+              {cardList3.map((item, ind) => (
+                <div key={ind} className="col-md-3">
+                  <div className="card mb-4">
+                    <div className="card-body">
+                      <h6 className="mb-3">{item.title}</h6>
+                      <p
+                        className={`text-20 text-${item.color} line-height-1 mb-3`}
+                      >
+                        <i className="i-Arrow-Down-in-Circle"></i> {item.message}
+                      </p>
+                      <small className="text-muted">{item.subtitle}</small>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
             <img
-                className="card-img"
-                src="/assets/images/12mmodel.png"
-                alt="Card"
-              />
+              className="card-img"
+              src="/assets/images/12mmodel.png"
+              alt="Card"
+            />
 
             <SimpleCard title="12M Status">
               <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
@@ -372,17 +530,69 @@ class Dashboard12m extends Component {
                   eventKey="home"
                   title={customTabHeader("Monitor Broadcast", "i-Atom")}
                 >
-
+                  <div className="row">
+                    {cardList3.map((item, ind) => (
+                      <div key={ind} className="col-md-3">
+                        <div className="card mb-4">
+                          <div className="card-body">
+                            <h6 className="mb-3">{item.title}</h6>
+                            <p
+                              className={`text-20 text-${item.color} line-height-1 mb-3`}
+                            >
+                              <i className="i-Arrow-Down-in-Circle"></i> {item.message}
+                            </p>
+                            <small className="text-muted">{item.subtitle}</small>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </Tab>
                 <Tab
                   eventKey="profile"
                   title={customTabHeader("Pointing requested position", "i-Shutter")}
                 >
+                  <div className="row">
+                    {cardList4.map((item, ind) => (
+                      <div key={ind} className="col-md-6">
+                        <div className="card mb-4">
+                          <div className="card-body">
+                            <h6 className="mb-3">{item.title}</h6>
+                            <p
+                              className={`text-20 text-${item.color} line-height-1 mb-3`}
+                            >
+                              <i className="i-Arrow-Down-in-Circle"></i> {item.message}
+                            </p>
+                            <small className="text-muted">{item.subtitle}</small>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </Tab>
                 <Tab
                   eventKey="contact"
                   title={customTabHeader("Downstairs if/lo", "i-Boy")}
                 >
+
+<div className="row">
+                    {cardList5.map((item, ind) => (
+                      <div key={ind} className="col-md-6">
+                        <div className="card mb-4">
+                          <div className="card-body">
+                            <h6 className="mb-3">{item.title}</h6>
+                            <p
+                              className={`text-20 text-${item.color} line-height-1 mb-3`}
+                            >
+                              <i className="i-Arrow-Down-in-Circle"></i> {item.message}
+                            </p>
+                            <small className="text-muted">{item.subtitle}</small>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
                 </Tab>
               </Tabs>
             </SimpleCard>
@@ -514,13 +724,13 @@ class Dashboard12m extends Component {
                         to="#"
                         className="list-group-item list-group-item-action"
                       >
-                        <i className="i-Add-User"> </i> Assign User
+                        <i className="i-Add-User"> </i> 12m Control Program
                       </Link>
                       <Link
                         to="#"
-                        className="list-group-item list-group-item-action disabled"
+                        className="list-group-item list-group-item-action"
                       >
-                        <i className="i-Business-Mens"> </i> Create Team
+                        <i className="i-Business-Mens"> </i> Phil's 12m Page
                       </Link>
                     </div>
                     <div className="mb-4"></div>
@@ -528,7 +738,7 @@ class Dashboard12m extends Component {
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
-          
+
           </Col>
 
         </div>

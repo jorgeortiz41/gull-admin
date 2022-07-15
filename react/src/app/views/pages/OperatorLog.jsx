@@ -106,6 +106,11 @@ class OperatorLog extends Component {
       "23:30",
     ],
 
+    ShiftList: [
+      "8-16",
+      "16-24",
+      "24-8",
+    ],
     dateList: [
       {
         curDT: new Date().toLocaleString(),
@@ -167,6 +172,7 @@ class OperatorLog extends Component {
       eventCodeList = [],
       dateList = [],
       hoursList = [],
+      ShiftList = [],
     } = this.state;
 
     let optionNames = namesList.map((user) =>
@@ -193,6 +199,10 @@ class OperatorLog extends Component {
       <option key={hour}>{hour}</option>
     );
 
+    let optionShift = ShiftList.map((shift) =>
+      <option key={shift}>{shift}</option>
+    );
+
     return (
       <div>
         <Breadcrumb className="operatorNavbar"
@@ -212,6 +222,13 @@ class OperatorLog extends Component {
                 <label htmlFor="picker1">Operator</label>
                 <select className="form-control" placeholder="Pick your name">
                   {optionNames}
+                </select>
+              </div>
+
+              <div className="col-md-2 form-group mb-3">
+                <label htmlFor="picker1">Shift</label>
+                <select className="form-control">
+                  {optionShift}
                 </select>
               </div>
 

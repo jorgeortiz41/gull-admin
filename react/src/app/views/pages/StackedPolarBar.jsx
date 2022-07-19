@@ -21,8 +21,8 @@ const directions = {
 };
 
 const antennae = {
-  45: "45°",
-  46: "46°", 
+  225: "225°",
+  226: "226°", 
 }
 
 
@@ -156,7 +156,7 @@ class StackedPolarBar extends Component {
             style={{
               data: {
                 fill: (d, a) => (a ? darkpurple.highlight : darkpurple.base),
-                width: 40
+                width: 5
               }
             }}
             data={this.state.wind}

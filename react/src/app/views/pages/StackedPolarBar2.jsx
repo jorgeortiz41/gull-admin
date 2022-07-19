@@ -25,7 +25,7 @@ const antennae = {
   46: "46°", 
 }
 
-
+const showItems = 3;
 
 const purple = { base: "violet", highlight: "violet" };
 
@@ -70,7 +70,7 @@ class CenterLabel extends Component {
   }
 }
 
-class StackedPolarBar extends Component {
+class StackedPolarBar2 extends Component {
   constructor(props) {
     super(props);
     this.state = { wind: this.getWindData() };
@@ -136,7 +136,7 @@ class StackedPolarBar extends Component {
         <VictoryPolarAxis
           labelPlacement="parallel"
           tickValues={_.keys(directions).map(k => +k)}
-          tickFormat={_.values(directions)}
+          tickFormat={_.values(directions).slice(0, showItems)}
         />
         <VictoryStack>
           <VictoryBar
@@ -156,7 +156,7 @@ class StackedPolarBar extends Component {
             style={{
               data: {
                 fill: (d, a) => (a ? darkpurple.highlight : darkpurple.base),
-                width: 40
+                width: 5
               }
             }}
             data={this.state.wind}
@@ -172,4 +172,4 @@ class StackedPolarBar extends Component {
   }
 }
 
-export default StackedPolarBar;
+export default StackedPolarBar2;

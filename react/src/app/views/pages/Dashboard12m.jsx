@@ -17,6 +17,9 @@ import Echart10 from "../ui-kits/card-metrics/Echart10";
 import { ProgressBar } from "react-bootstrap";
 import { Row, Col, Tab, Tabs, Nav, Dropdown, Accordion } from "react-bootstrap";
 import SimpleCard from "@gull/components/cards/SimpleCard";
+import StackedPolarBar from "./StackedPolarBar";
+import StackedPolarBar2 from "./StackedPolarBar2";
+
 
 import {
   bAOptions1,
@@ -270,27 +273,18 @@ class Dashboard12m extends Component {
         color: "danger",
         message: "pwrOff"
       },
-      // {
-      //   title: "Server status region 2",
-      //   subtitle: "Last down 8 days ago",
-      //   icon: "i-Arrow-Up-in-Circle",
-      //   color: "success",
-      //   message: "Up"
-      // },
-      // {
-      //   title: "Server status region 3",
-      //   subtitle: "Last down 22 days ago",
-      //   icon: "i-Arrow-Down-in-Circle",
-      //   color: "danger",
-      //   message: "Down"
-      // },
-      // {
-      //   title: "Server status region 4",
-      //   subtitle: "Last down 2 days ago",
-      //   icon: "i-Arrow-Down-in-Circle",
-      //   color: "danger",
-      //   message: "Down"
-      // }
+      {
+        title: "RA",
+        icon: "i-Arrow-Up-in-Circle",
+        color: "success",
+        message: "9:53:09.3"
+      },
+      {
+        icon: "i-Cube-Molecule-2",
+        title: "DEC",
+        color: "danger",
+        message: "7:55:35.7"
+      },
     ],
     cardList4: [
       {
@@ -364,7 +358,7 @@ class Dashboard12m extends Component {
         subtitle: "year, month, day",
         icon: "i-Arrow-Up-in-Circle",
         color: "success",
-        message: "220714"
+        message: "07/14/22"
       },
       {
         icon: "i-Cube-Molecule-2",
@@ -518,11 +512,19 @@ class Dashboard12m extends Component {
                 </div>
               ))}
             </div>
-            <img
-              className="card-img"
-              src="/assets/images/12mmodel.png"
-              alt="Card"
-            />
+
+            <div className="row">
+            <Col lg={6} md={6} sm={12} xs={12} className="mb-4">
+                <SimpleCard className="h-100" title="12m Azimuth">
+                  <StackedPolarBar />
+                </SimpleCard>
+              </Col>
+              <Col lg={6} md={6} sm={12} xs={12} className="mb-4">
+                <SimpleCard className="h-100" title="12m Elevation">
+                  <StackedPolarBar2 />
+                </SimpleCard>
+              </Col>
+            </div>
 
             <SimpleCard title="12M Status">
               <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
@@ -575,7 +577,7 @@ class Dashboard12m extends Component {
                   title={customTabHeader("Downstairs if/lo", "i-Boy")}
                 >
 
-<div className="row">
+                  <div className="row">
                     {cardList5.map((item, ind) => (
                       <div key={ind} className="col-md-6">
                         <div className="card mb-4">
@@ -612,10 +614,11 @@ class Dashboard12m extends Component {
                 <div className="row text-center">
                   <div className="col-12 col-md-12">
                     <div className="text-white ">
-                      <h4 className="card-title text-white">Lester, London</h4>
+                      <h4 className="card-title text-white">Arecibo</h4>
                       <h5 className="font-light text-white">
-                        MONDAY May 11, 2017
+                        Tuesday July 19, 2022
                       </h5>
+                      <h3 className="font-light text-white">12:00:00 AM</h3>
                     </div>
                     <div className="mt-4">
                       <span className="text-white">

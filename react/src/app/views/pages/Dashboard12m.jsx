@@ -602,11 +602,7 @@ class Dashboard12m extends Component {
 
           <Col lg={4} md={2} sm={2} xs={2}>
             <div className="card bg-dark text-white o-hidden mb-2">
-              <img
-                className="card-img"
-                src="/assets/images/12m-cropped.jpg"
-                alt="Card"
-              />
+            <iframe width="450" height="315" src="https://www.youtube.com/embed/86YLFOog4GM?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div className="card bg-primary">
